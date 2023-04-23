@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b08wq3w0l0upv"]
+
+[ext_resource type="Texture2D" uid="uid://c4qxtctpmv67d" path="res://earth.jpg" id="1_kk6ry"]
+[ext_resource type="PackedScene" uid="uid://cy8k5srvvslo1" path="res://Parcel.tscn" id="2_fih2o"]
+[ext_resource type="Script" path="res://Earth.cs" id="2_j5yai"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fwofy"]
+radius = 5500.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Earth" type="Sprite2D" parent="."]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_kk6ry")
+script = ExtResource("2_j5yai")
+Parcel = ExtResource("2_fih2o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Earth"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Earth/StaticBody2D"]
+shape = SubResource("CircleShape2D_fwofy")

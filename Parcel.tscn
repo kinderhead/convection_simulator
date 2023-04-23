@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy8k5srvvslo1"]
+
+[ext_resource type="Script" path="res://Parcel.cs" id="1_7fn1u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahev1"]
+radius = 50.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ibeno"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6s3m6"]
+material = SubResource("StandardMaterial3D_ibeno")
+radius = 50.0
+height = 100.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ahev1")
+
+[node name="Parcel" type="MeshInstance2D" parent="."]
+scale = Vector2(0.25, 0.25)
+mesh = SubResource("SphereMesh_6s3m6")
+script = ExtResource("1_7fn1u")
+
+[node name="Temperature" type="Label" parent="Parcel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -13.0
+offset_right = 51.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ahev1")
