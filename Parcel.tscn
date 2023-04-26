@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Parcel.cs" id="1_7fn1u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ahev1"]
-radius = 50.0
+radius = 13.1529
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ibeno"]
 
@@ -40,8 +40,3 @@ theme_override_font_sizes/font_size = 50
 text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_ahev1")

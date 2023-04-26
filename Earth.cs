@@ -23,9 +23,13 @@ public partial class Earth : Sprite2D
 
         if (Input.IsActionPressed("click"))
         {
-            var p = Parcel.Instantiate<RigidBody2D>();
-            p.GlobalPosition = GetGlobalMousePosition();
-            AddSibling(p);
+            var pos = GetGlobalMousePosition();
+            if (pos.DistanceTo(Vector2.Zero) < 850)
+            {
+                var p = Parcel.Instantiate<RigidBody2D>();
+                p.GlobalPosition = pos;
+                AddSibling(p);
+            }
         }
     }
 }
