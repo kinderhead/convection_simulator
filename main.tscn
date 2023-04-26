@@ -11,11 +11,12 @@ radius = 5500.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Earth" type="Sprite2D" parent="."]
+[node name="Earth" type="Sprite2D" parent="." node_paths=PackedStringArray("Camera")]
 scale = Vector2(0.09, 0.09)
 texture = ExtResource("1_kk6ry")
 script = ExtResource("2_j5yai")
 Parcel = ExtResource("2_fih2o")
+Camera = NodePath("../Camera2D")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Earth"]
 

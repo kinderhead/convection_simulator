@@ -37,11 +37,21 @@ public partial class Parcel : MeshInstance2D
     {
         GetParent<RigidBody2D>().ApplyCentralForce(GlobalPosition.DirectionTo(new(0, 0)) * 500 * (float)delta);
 
+        var effectiveTemp = Temperature;
         if (Temperature > 0)
         {
             //var effectiveTemp = Math.Min(10, Temperature);
-            var effectiveTemp = Temperature;
+            
             GetParent<RigidBody2D>().ApplyCentralForce(-GlobalPosition.DirectionTo(new(0, 0)) * 100 * (float)delta * (float)effectiveTemp);
+        }
+
+        if (GlobalPosition.DistanceTo(Vector2.Zero) < 750)
+        {
+            GetParent<RigidBody2D>().ApplyCentralForce(GlobalPosition.DirectionTo(new Vector2(GlobalPosition.X, 0)) * (float)delta * 300);
+        }
+        else
+        {
+            GetParent<RigidBody2D>().ApplyCentralForce(GlobalPosition.DirectionTo(new Vector2(GlobalPosition.X, 500 * Math.Sign(GlobalPosition.Y))) * (float)delta * 300);
         }
     }
 }
